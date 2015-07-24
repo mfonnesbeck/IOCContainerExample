@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IOCContainerExample.Models.JobItem
+
+<h2>Job Details</h2>
+
+<fieldset>
+    <legend>Job - @Html.DisplayFor(model => model.jobTitle) for @Html.DisplayFor(model => model.jobCompany)</legend>
+
+    <div class="main-content">
+        <div class="outer">
+            <div class="display-label">Company Name:</div>
+            <div class="display-field" id=" @Html.DisplayFor(model => model.jobID) ">
+                @Html.DisplayFor(model => model.jobCompany)
+            </div>
+        </div>
+
+        <div class="outer">
+            <div class="display-label">Job Title:</div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.jobTitle)
+            </div>
+        </div>
+        <div class="outer">
+            <div class="display-label">Contact Person:</div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.jobContactPerson)
+            </div>
+        </div>
+        <div class="outer">
+            <div class="display-label">Last Update:</div>
+            <div class="display-field">
+                @Html.ValueFor(model => model.jobUpdate, "{0:ddd MMM dd, yyyy}")
+            </div>
+        </div>
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
